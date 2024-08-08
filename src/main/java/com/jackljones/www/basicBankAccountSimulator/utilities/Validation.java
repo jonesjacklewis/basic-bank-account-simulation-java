@@ -92,6 +92,8 @@ public class Validation {
             return false;
         }
 
+        accountNumber = accountNumber.trim();
+
         if (accountNumber.isEmpty()) {
             return false;
         }
