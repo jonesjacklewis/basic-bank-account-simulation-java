@@ -215,4 +215,81 @@ public class ValidationTest {
         assertTrue(result);
     }
 
+    /**
+     * Testing the isIntegerInRange method.
+     * GIVEN: The value is less than the minimum value.
+     * WHEN: The value is checked to see if it is in range.
+     * THEN: The method should return false.
+     */
+    @Test
+    public void isIntegerInRange_when_valueIsLessThanMinimum_returnFalse() {
+        int value = 0;
+        int minimumValue = 1;
+        int maximumValue = 10;
+        boolean result = Validation.isIntegerInRange(value, minimumValue, maximumValue);
+        assertFalse(result);
+    }
+
+    /**
+     * Testing the isIntegerInRange method.
+     * GIVEN: The value is greater than the maximum value.
+     * WHEN: The value is checked to see if it is in range.
+     * THEN: The method should return false.
+     */
+    @Test
+    public void isIntegerInRange_when_valueIsGreaterThanMaximum_returnFalse() {
+        int value = 11;
+        int minimumValue = 1;
+        int maximumValue = 10;
+        boolean result = Validation.isIntegerInRange(value, minimumValue, maximumValue);
+        assertFalse(result);
+    }
+
+    /**
+     * Testing the isIntegerInRange method.
+     * GIVEN: The value is in range.
+     * WHEN: The value is checked to see if it is in range.
+     * THEN: The method should return true.
+     */
+    @Test
+    public void isIntegerInRange_when_valueIsMinimum_returnTrue() {
+        int value = 1;
+        int minimumValue = 1;
+        int maximumValue = 10;
+        boolean result = Validation.isIntegerInRange(value, minimumValue, maximumValue);
+        assertTrue(result);
+    }
+
+    /**
+     * Testing the isIntegerInRange method.
+     * GIVEN: The value is the maximum value.
+     * WHEN: The value is checked to see if it is in range.
+     * THEN: The method should return true.
+     */
+    @Test
+    public void isIntegerInRange_when_valueIsMaximum_returnTrue() {
+        int value = 10;
+        int minimumValue = 1;
+        int maximumValue = 10;
+        boolean result = Validation.isIntegerInRange(value, minimumValue, maximumValue);
+        assertTrue(result);
+    }
+
+    /**
+     * Testing the isIntegerInRange method.
+     * GIVEN: The value is in range.
+     * WHEN: The value is checked to see if it is in range.
+     * THEN: The method should return true.
+     */
+    @Test
+    public void isIntegerInRange_when_valueIsInRange_returnTrue() {
+        int value = 5;
+        int minimumValue = 1;
+        int maximumValue = 10;
+        boolean result = Validation.isIntegerInRange(value, minimumValue, maximumValue);
+        assertTrue(result);
+    }
+
+    
+
 }
