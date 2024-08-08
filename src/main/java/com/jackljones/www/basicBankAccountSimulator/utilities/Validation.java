@@ -117,6 +117,7 @@ public class Validation {
      * @return true if the money value is valid, false otherwise.
      */
     public static boolean isValidMoneyValueByRegex(String input) {
+        input = input.trim();
         return input.matches("^-?\\d+(\\.\\d{1,2})?$");
     }
 
