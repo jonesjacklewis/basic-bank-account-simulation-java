@@ -61,7 +61,7 @@ public class MiscUtilities {
 
             int option = Integer.parseInt(stringOption);
 
-            if (!Validation.integerIsInRange(option, 1, menuOptions.length)) {
+            if (!Validation.isIntegerInRange(option, 1, menuOptions.length)) {
                 System.out.printf("Value must lie between 1 and %d\n", menuOptions.length);
                 continue;
             }

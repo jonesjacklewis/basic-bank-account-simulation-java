@@ -38,7 +38,7 @@ public class UserHelper {
             name = sc.nextLine();
 
             // Length checks
-            if (!Validation.integerIsInRange(name.length(), MINIMUM_STRING_LENGTH, MAXIMUM_STRING_LENGTH)) {
+            if (!Validation.isIntegerInRange(name.length(), MINIMUM_STRING_LENGTH, MAXIMUM_STRING_LENGTH)) {
                 System.out.printf("A name must be between %d and %d letters", MINIMUM_STRING_LENGTH,
                         MAXIMUM_STRING_LENGTH);
                 continue;

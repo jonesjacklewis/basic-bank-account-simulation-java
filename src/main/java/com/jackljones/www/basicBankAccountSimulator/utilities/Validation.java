@@ -38,7 +38,7 @@ public class Validation {
      * @param maximumValue the maximum integer value to be checked against.
      * @return true if the value is in range, false otherwise.
      */
-    public static boolean integerIsInRange(int value, int minimumValue, int maximumValue) {
+    public static boolean isIntegerInRange(int value, int minimumValue, int maximumValue) {
         if (value < minimumValue) {
             return false;
         }
