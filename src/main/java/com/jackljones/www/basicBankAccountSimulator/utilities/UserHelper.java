@@ -25,6 +25,17 @@ public class UserHelper {
      * @return a string representing the valid name
      */
     public static String getValidName(Scanner sc, String prompt) {
+        if(sc == null) {
+            throw new IllegalArgumentException("Scanner object cannot be null");
+        }
+        if(prompt == null) {
+            prompt = "Please enter a name: ";
+        }
+
+        if(prompt.isEmpty()) {
+            prompt = "Please enter a name: ";
+        }
+
         String name = "";
 
         while (true) {
