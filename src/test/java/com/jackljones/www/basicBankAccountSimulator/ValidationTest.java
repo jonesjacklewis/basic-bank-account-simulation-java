@@ -380,5 +380,96 @@ public class ValidationTest {
         assertFalse(result);
     }
 
+    /**
+     * Testing the isValidAccountNumber method.
+     * GIVEN: The account number is null.
+     * WHEN: The account number is checked to see if it is valid.
+     * THEN: The method should return false.
+     */
+    @Test
+    public void isValidAccountNumber_when_accountNumberIsNull_returnFalse() {
+        String accountNumber = null;
+        boolean result = Validation.isValidAccountNumber(accountNumber);
+        assertFalse(result);
+    }
+
+    /**
+     * Testing the isValidAccountNumber method.
+     * GIVEN: The account number is empty.
+     * WHEN: The account number is checked to see if it is valid.
+     * THEN: The method should return false.
+     */
+    @Test
+    public void isValidAccountNumber_when_accountNumberIsEmpty_returnFalse() {
+        String accountNumber = "";
+        boolean result = Validation.isValidAccountNumber(accountNumber);
+        assertFalse(result);
+    }
+
+    /**
+     * Testing the isValidAccountNumber method.
+     * GIVEN: The account number is whitespace.
+     * WHEN: The account number is checked to see if it is valid.
+     * THEN: The method should return false.
+     */
+    @Test
+    public void isValidAccountNumber_when_accountNumberIsWhitespace_returnFalse() {
+        String accountNumber = "   ";
+        boolean result = Validation.isValidAccountNumber(accountNumber);
+        assertFalse(result);
+    }
+
+     /**
+     * Testing the isValidAccountNumber method.
+     * GIVEN: The account number is less than eight characters.
+     * WHEN: The account number is checked to see if it is valid.
+     * THEN: The method should return false.
+     */
+    @Test
+    public void isValidAccountNumber_when_accountNumberIsLessThanEightCharacters_returnFalse() {
+        String accountNumber = "1234567";
+        boolean result = Validation.isValidAccountNumber(accountNumber);
+        assertFalse(result);
+    }
+
+    /**
+     * Testing the isValidAccountNumber method.
+     * GIVEN: The account number is more than eight characters.
+     * WHEN: The account number is checked to see if it is valid.
+     * THEN: The method should return false.
+     */
+    @Test
+    public void isValidAccountNumber_when_accountNumberIsMoreThanEightCharacters_returnFalse() {
+        String accountNumber = "123456789";
+        boolean result = Validation.isValidAccountNumber(accountNumber);
+        assertFalse(result);
+    }
+
+     /**
+     * Testing the isValidAccountNumber method.
+     * GIVEN: The account number is none numeric.
+     * WHEN: The account number is checked to see if it is valid.
+     * THEN: The method should return false.
+     */
+    @Test
+    public void isValidAccountNumber_when_accountNumberIsNoneNumeric_returnFalse() {
+        String accountNumber = "a234567b";
+        boolean result = Validation.isValidAccountNumber(accountNumber);
+        assertFalse(result);
+    }
+
+    /**
+     * Testing the isValidAccountNumber method.
+     * GIVEN: The account number is 8 digits.
+     * WHEN: The account number is checked to see if it is valid.
+     * THEN: The method should return false.
+     */
+    @Test
+    public void isValidAccountNumber_when_accountNumberEightDigits_returnTrue() {
+        String accountNumber = "12345678";
+        boolean result = Validation.isValidAccountNumber(accountNumber);
+        assertTrue(result);
+    }
+
 
 }
