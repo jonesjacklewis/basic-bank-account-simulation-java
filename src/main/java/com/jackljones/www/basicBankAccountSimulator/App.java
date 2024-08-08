@@ -5,6 +5,7 @@ import com.jackljones.www.basicBankAccountSimulator.models.User;
 import com.jackljones.www.basicBankAccountSimulator.utilities.AccountHelper;
 import com.jackljones.www.basicBankAccountSimulator.utilities.DatabaseHelper;
 import com.jackljones.www.basicBankAccountSimulator.utilities.MiscUtilities;
+import com.jackljones.www.basicBankAccountSimulator.utilities.ScannerInputHandler;
 import com.jackljones.www.basicBankAccountSimulator.utilities.UserHelper;
 
 import java.sql.Connection;
@@ -34,7 +35,8 @@ public class App {
                 "Withdraw money"
         };
 
-        try (Scanner sc = new Scanner(System.in)) {
+        try (Scanner s = new Scanner(System.in)) {
+            ScannerInputHandler sc = new ScannerInputHandler(s);
             try (Connection conn = DriverManager.getConnection("jdbc:sqlite:test.db")) {
                 if (conn != null) {
                     db = new DatabaseHelper(conn);
@@ -87,7 +89,7 @@ public class App {
      * @param sc a Scanner object
      * @param db a DatabaseHelper object
      */
-    private static void createANewAccountMenu(Scanner sc, DatabaseHelper db) {
+    private static void createANewAccountMenu(ScannerInputHandler sc, DatabaseHelper db) {
         if (db == null) {
             throw new IllegalArgumentException("DatabaseHelper cannot be null");
         }
@@ -123,7 +125,7 @@ public class App {
      * @param db a DatabaseHelper object
      * @return true if the user is logged in, false otherwise.
      */
-    private static boolean ensureUserIsLoggedIn(Scanner sc, DatabaseHelper db) {
+    private static boolean ensureUserIsLoggedIn(ScannerInputHandler sc, DatabaseHelper db) {
         if (selectedAccount != null) {
             return true;
         }
@@ -145,7 +147,7 @@ public class App {
      * @param sc A Scanner object
      * @param db A DatabaseHelper object
      */
-    private static void depositMoneyMenu(Scanner sc, DatabaseHelper db) {
+    private static void depositMoneyMenu(ScannerInputHandler sc, DatabaseHelper db) {
 
         boolean isLoggedIn = ensureUserIsLoggedIn(sc, db);
 
@@ -171,7 +173,7 @@ public class App {
      * @param sc A Scanner object
      * @param db A DatabaseHelper object
      */
-    private static void checkBalanceMenu(Scanner sc, DatabaseHelper db) {
+    private static void checkBalanceMenu(ScannerInputHandler sc, DatabaseHelper db) {
         boolean isLoggedIn = ensureUserIsLoggedIn(sc, db);
 
         if (!isLoggedIn) {
@@ -189,7 +191,7 @@ public class App {
      * @param sc A Scanner object
      * @param db A DatabaseHelper object
      */
-    private static void withdrawMoneyMenu(Scanner sc, DatabaseHelper db) {
+    private static void withdrawMoneyMenu(ScannerInputHandler sc, DatabaseHelper db) {
         boolean isLoggedIn = ensureUserIsLoggedIn(sc, db);
 
         if (!isLoggedIn) {

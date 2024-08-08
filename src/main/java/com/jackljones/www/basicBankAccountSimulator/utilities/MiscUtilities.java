@@ -1,7 +1,6 @@
 package com.jackljones.www.basicBankAccountSimulator.utilities;
 
 import java.util.Arrays;
-import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -32,7 +31,7 @@ public class MiscUtilities {
      * @param sc          a Scanner object
      * @return a value from the generic array menuOptions or null
      */
-    public static <T> T getMenuOption(T[] menuOptions, Scanner sc) {
+    public static <T> T getMenuOption(T[] menuOptions, ScannerInputHandler sc) {
         if (menuOptions == null || menuOptions.length == 0) {
             return null;
         }
@@ -177,7 +176,7 @@ public class MiscUtilities {
      * @return an integer representing the amount of money in pence
      * @throws IllegalArgumentException if the Scanner object is null
      */
-    public static int getMoneyInPenceFromUser(Scanner sc, String prompt) {
+    public static int getMoneyInPenceFromUser(ScannerInputHandler sc, String prompt) {
         if (sc == null) {
             throw new IllegalArgumentException("Scanner cannot be null");
         }

@@ -1,7 +1,5 @@
 package com.jackljones.www.basicBankAccountSimulator.utilities;
 
-import java.util.Scanner;
-
 /**
  * The UserHelper class provides methods to assist with user input and
  * validation.
@@ -24,7 +22,7 @@ public class UserHelper {
      * @param prompt a string representing the prompt
      * @return a string representing the valid name
      */
-    public static String getValidName(Scanner sc, String prompt) {
+    public static String getValidName(ScannerInputHandler sc, String prompt) {
         if(sc == null) {
             throw new IllegalArgumentException("Scanner object cannot be null");
         }

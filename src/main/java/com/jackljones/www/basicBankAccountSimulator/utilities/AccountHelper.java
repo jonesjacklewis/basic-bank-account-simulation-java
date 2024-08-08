@@ -1,7 +1,5 @@
 package com.jackljones.www.basicBankAccountSimulator.utilities;
 
-import java.util.Scanner;
-
 import com.jackljones.www.basicBankAccountSimulator.models.Account;
 
 /**
@@ -31,7 +29,7 @@ public class AccountHelper {
      * @param db a DatabaseHelper object
      * @return an Account object
      */
-    public static Account logUserIn(Scanner sc, DatabaseHelper db){
+    public static Account logUserIn(ScannerInputHandler sc, DatabaseHelper db){
         if(db == null){
             System.out.println("Database not connected.");
             return null;
@@ -60,7 +58,7 @@ public class AccountHelper {
      * @param sc a Scanner object
      * @return a string representing the account number
      */
-    private static String getValidAccountNumber(Scanner sc){
+    private static String getValidAccountNumber(ScannerInputHandler sc){
         if(sc == null){
             return "";
         }
