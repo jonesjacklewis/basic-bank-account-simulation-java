@@ -289,7 +289,96 @@ public class ValidationTest {
         boolean result = Validation.isIntegerInRange(value, minimumValue, maximumValue);
         assertTrue(result);
     }
-
     
+    /**
+     * Testing the stringContainsAlphaAndApprovedCharacters method.
+     * GIVEN: The string contains only alphabetic characters.
+     * AND: The approved characters are null.
+     * WHEN: The string is checked to see if it contains only alphabetic characters and approved characters.
+     * THEN: The method should return true.
+     */
+    @Test
+    public void stringContainsAlphaAndApprovedCharacters_when_approvedCharactersIsNullOnlyAlpha_returnTrue() {
+        String toTest = "abc";
+        Character[] approvedCharacters = null;
+        boolean result = Validation.stringContainsAlphaAndApprovedCharacters(toTest, approvedCharacters);
+        assertTrue(result);
+    }
+
+    /**
+     * Testing the stringContainsAlphaAndApprovedCharacters method.
+     * GIVEN: The string contains only alphabetic characters.
+     * AND: The approved characters are an empty array.
+     * WHEN: The string is checked to see if it contains only alphabetic characters and approved characters.
+     * THEN: The method should return true.
+     */
+    @Test
+    public void stringContainsAlphaAndApprovedCharacters_when_approvedCharactersIsEmptyOnlyAlpha_returnTrue() {
+        String toTest = "abc";
+        Character[] approvedCharacters = new Character[0];
+        boolean result = Validation.stringContainsAlphaAndApprovedCharacters(toTest, approvedCharacters);
+        assertTrue(result);
+    }
+
+    /**
+     * Testing the stringContainsAlphaAndApprovedCharacters method.
+     * GIVEN: The string contains only non-alphabetic characters.
+     * AND: The approved characters are null.
+     * WHEN: The string is checked to see if it contains only alphabetic characters and approved characters.
+     * THEN: The method should return false.
+     */
+    @Test
+    public void stringContainsAlphaAndApprovedCharacters_when_approvedCharactersIsNullOnlySymbols_returnFalse() {
+        String toTest = "!_+";
+        Character[] approvedCharacters = null;
+        boolean result = Validation.stringContainsAlphaAndApprovedCharacters(toTest, approvedCharacters);
+        assertFalse(result);
+    }
+
+    /**
+     * Testing the stringContainsAlphaAndApprovedCharacters method.
+     * GIVEN: The string contains only non-alphabetic characters.
+     * AND: The approved characters are an empty array.
+     * WHEN: The string is checked to see if it contains only alphabetic characters and approved characters.
+     * THEN: The method should return false.
+     */
+    @Test
+    public void stringContainsAlphaAndApprovedCharacters_when_approvedCharactersIsEmptyOnlySymbols_returnFalse() {
+        String toTest = "!_+";
+        Character[] approvedCharacters = new Character[0];
+        boolean result = Validation.stringContainsAlphaAndApprovedCharacters(toTest, approvedCharacters);
+        assertFalse(result);
+    }
+
+    /**
+     * Testing the stringContainsAlphaAndApprovedCharacters method.
+     * GIVEN: The string contains only alphabetic characters.
+     * AND: The approved characters are an array of approved characters.
+     * WHEN: The string is checked to see if it contains only alphabetic characters and approved characters.
+     * THEN: The method should return true.
+     */
+    @Test
+    public void stringContainsAlphaAndApprovedCharacters_when_approvedCharactersAreInString_returnTrue() {
+        String toTest = "abc!";
+        Character[] approvedCharacters = {'!'};
+        boolean result = Validation.stringContainsAlphaAndApprovedCharacters(toTest, approvedCharacters);
+        assertTrue(result);
+    }
+
+    /**
+     * Testing the stringContainsAlphaAndApprovedCharacters method.
+     * GIVEN: The string contains only alphabetic characters.
+     * AND: The approved characters are an array of approved characters.
+     * WHEN: The string is checked to see if it contains only alphabetic characters and approved characters.
+     * THEN: The method should return true.
+     */
+    @Test
+    public void stringContainsAlphaAndApprovedCharacters_when_stringContainsUnapprovedChars_returnFalse() {
+        String toTest = "abc!";
+        Character[] approvedCharacters = {'?'};
+        boolean result = Validation.stringContainsAlphaAndApprovedCharacters(toTest, approvedCharacters);
+        assertFalse(result);
+    }
+
 
 }
