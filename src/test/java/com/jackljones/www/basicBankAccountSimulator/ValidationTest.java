@@ -471,5 +471,137 @@ public class ValidationTest {
         assertTrue(result);
     }
 
+    /**
+     * Testing the isValidMoneyValueByRegex method.
+     * GIVEN: The input is null.
+     * WHEN: The input is checked to see if it is a valid money value.
+     * THEN: The method should return false.
+     */
+    @Test
+    public void isValidMoneyValueByRegex_when_inputIsNull_returnFalse() {
+        String input = null;
+        boolean result = Validation.isValidMoneyValueByRegex(input);
+        assertFalse(result);
+    }
+
+    /**
+     * Testing the isValidMoneyValueByRegex method.
+     * GIVEN: The input is empty.
+     * WHEN: The input is checked to see if it is a valid money value.
+     * THEN: The method should return false.
+     */
+    @Test
+    public void isValidMoneyValueByRegex_when_inputIsEmpty_returnFalse() {
+        String input = "";
+        boolean result = Validation.isValidMoneyValueByRegex(input);
+        assertFalse(result);
+    }
+
+    /**
+     * Testing the isValidMoneyValueByRegex method.
+     * GIVEN: The input is whitespace.
+     * WHEN: The input is checked to see if it is a valid money value.
+     * THEN: The method should return false.
+     */
+    @Test
+    public void isValidMoneyValueByRegex_when_inputIsWhitespace_returnFalse() {
+        String input = "   ";
+        boolean result = Validation.isValidMoneyValueByRegex(input);
+        assertFalse(result);
+    }
+
+    /**
+     * Testing the isValidMoneyValueByRegex method.
+     * GIVEN: The input is a number without a decimal.
+     * WHEN: The input is checked to see if it is a valid money value.
+     * THEN: The method should return false.
+     */
+    @Test
+    public void isValidMoneyValueByRegex_when_inputNotContainsDecimal_returnFalse() {
+        String input = "10";
+        boolean result = Validation.isValidMoneyValueByRegex(input);
+        assertFalse(result);
+    }
+
+
+    /**
+     * Testing the isValidMoneyValueByRegex method.
+     * GIVEN: The input has nothing before the decimal.
+     * WHEN: The input is checked to see if it is a valid money value.
+     * THEN: The method should return false.
+     */
+    @Test
+    public void isValidMoneyValueByRegex_when_inputHasNothingBeforeDecimal_returnFalse(){
+        String input = ".00";
+        boolean result = Validation.isValidMoneyValueByRegex(input);
+        assertFalse(result);
+    }
+
+    /**
+     * Testing the isValidMoneyValueByRegex method.
+     * GIVEN: The input has nothing after the decimal.
+     * WHEN: The input is checked to see if it is a valid money value.
+     * THEN: The method should return false.
+     */
+    @Test
+    public void isValidMoneyValueByRegex_when_inputHasNothingAfterDecimal_returnFalse(){
+        String input = "0.";
+        boolean result = Validation.isValidMoneyValueByRegex(input);
+        assertFalse(result);
+    }
+
+    /**
+     * Testing the isValidMoneyValueByRegex method.
+     * GIVEN: The input has only one digit after the decimal.
+     * WHEN: The input is checked to see if it is a valid money value.
+     * THEN: The method should return false.
+     */
+    @Test
+    public void isValidMoneyValueByRegex_when_inputHasOneNumberAfterDecimal_returnFalse(){
+        String input = "0.1";
+        boolean result = Validation.isValidMoneyValueByRegex(input);
+        assertFalse(result);
+    }
+
+     /**
+     * Testing the isValidMoneyValueByRegex method.
+     * GIVEN: The input has more than two digits after the decimal.
+     * WHEN: The input is checked to see if it is a valid money value.
+     * THEN: The method should return false.
+     */
+    @Test
+    public void isValidMoneyValueByRegex_when_inputHasMoreThanTwoNumbersAfterDecimal_returnFalse(){
+        String input = "0.123";
+        boolean result = Validation.isValidMoneyValueByRegex(input);
+        assertFalse(result);
+    }
+
+     /**
+     * Testing the isValidMoneyValueByRegex method.
+     * GIVEN: The input is a positive number with two decimal digits.
+     * WHEN: The input is checked to see if it is a valid money value.
+     * THEN: The method should return true.
+     */
+    @Test
+    public void isValidMoneyValueByRegex_when_inputIsPositiveWithTwoDecimalDigits_returnTrue(){
+        String input = "1.33";
+        boolean result = Validation.isValidMoneyValueByRegex(input);
+        assertTrue(result);
+    }
+
+    /**
+     * Testing the isValidMoneyValueByRegex method.
+     * GIVEN: The input is a positive number with two decimal digits.
+     * WHEN: The input is checked to see if it is a valid money value.
+     * THEN: The method should return true.
+     */
+    @Test
+    public void isValidMoneyValueByRegex_when_inputIsNegativeWithTwoDecimalDigits_returnTrue(){
+        String input = "-1.33";
+        boolean result = Validation.isValidMoneyValueByRegex(input);
+        assertTrue(result);
+    }
+
+
 
 }
