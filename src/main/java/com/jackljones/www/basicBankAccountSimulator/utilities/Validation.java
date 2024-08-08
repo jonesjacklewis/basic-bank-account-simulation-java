@@ -12,6 +12,9 @@ public class Validation {
      * @return true if the input is a valid integer number, false otherwise
      */
     public static boolean isIntegerNumber(String input) {
+        if (input.contains(".")) {
+            return false;
+        }
         try {
             Integer.parseInt(input);
             return true;
@@ -70,26 +73,27 @@ public class Validation {
     }
 
     /**
-     * Checks if an account number is valid. An account number is valid if it is an 8 digit number.
+     * Checks if an account number is valid. An account number is valid if it is an
+     * 8 digit number.
      * 
      * @param accountNumber a string representing the account number to be checked.
      * @return true if the account number is valid, false otherwise.
      * 
      */
-    public static boolean isValidAccountNumber(String accountNumber){
-        if(accountNumber == null){
+    public static boolean isValidAccountNumber(String accountNumber) {
+        if (accountNumber == null) {
             return false;
         }
 
-        if(accountNumber.isEmpty()){
+        if (accountNumber.isEmpty()) {
             return false;
         }
 
-        if(accountNumber.length() != 8){
+        if (accountNumber.length() != 8) {
             return false;
         }
 
-        if(!isIntegerNumber(accountNumber)){
+        if (!isIntegerNumber(accountNumber)) {
             return false;
         }
 
@@ -97,7 +101,8 @@ public class Validation {
     }
 
     /**
-     * Checks if a string is a valid money value. A valid money value is a number with up to 2 decimal places.
+     * Checks if a string is a valid money value. A valid money value is a number
+     * with up to 2 decimal places.
      * 
      * @param input a string representing the money value to be checked.
      * @return true if the money value is valid, false otherwise.
