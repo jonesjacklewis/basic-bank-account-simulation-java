@@ -127,7 +127,7 @@ public class Validation {
         }
 
         if(!input.contains(".")) {
-            return isIntegerNumber(input);
+            return false;
         }
 
         return input.matches("^-?\\d+(\\.\\d{2})?$");
