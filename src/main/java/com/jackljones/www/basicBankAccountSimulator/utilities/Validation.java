@@ -120,11 +120,17 @@ public class Validation {
         if (input == null) {
             return false;
         }
+
         input = input.trim();
         if (input.isEmpty()) {
             return false;
         }
-        return input.matches("^-?\\d+(\\.\\d{1,2})?$");
+
+        if(!input.contains(".")) {
+            return isIntegerNumber(input);
+        }
+
+        return input.matches("^-?\\d+(\\.\\d{2})?$");
     }
 
 }
