@@ -20,13 +20,13 @@ You will need to have the following installed on your machine:
 To get a copy of the project up and running on your local machine, clone the repository using the following command:
 
 ```
-git clone XXX
+git clone jonesjacklewis/basic-bank-account-simulation-java
 ```
 
 Navigate to the project directory:
 
 ```
-cd basic-bank-account-simulation
+cd basic-bank-account-simulation-java
 ```
 
 Compile the project using Maven:
