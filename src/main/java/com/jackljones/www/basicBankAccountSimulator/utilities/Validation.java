@@ -12,6 +12,13 @@ public class Validation {
      * @return true if the input is a valid integer number, false otherwise
      */
     public static boolean isIntegerNumber(String input) {
+        if (input == null) {
+            return false;
+        }
+        input = input.trim();
+        if (input == "") {
+            return false;
+        }
         if (input.contains(".")) {
             return false;
         }
